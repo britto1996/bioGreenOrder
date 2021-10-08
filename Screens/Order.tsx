@@ -8,27 +8,38 @@ export default function Order() {
     return (
         <View style={styles.orderContainer}>
             <Text style={styles.orderTitle}>Your Order</Text>
-            <Card containerStyle={{padding:0,width:350,borderRadius:18,elevation:10}}>
+            <Card containerStyle={{padding:0,width:"100%",elevation:10}}>
                 <Text style={styles.product}>Product</Text>
                 <Card.Divider style={styles.divider} />
                 <Text style={styles.productItems}>{orderData[0].productName}<Text style={styles.count}> × {orderData[0].count} </Text></Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.subtotal}>Subtotal</Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.priceEach}>{orderData[0].subTotal}</Text>
-                <Card.Divider style={styles.divider} />
+             </Card>
+
+            <Card containerStyle={{padding:0,width:"100%",elevation:10}}>
                 <Text style={styles.shipping}>Shipping</Text>
                 <Card.Divider style={styles.divider} />
-                <Text style={styles.address}>{orderData[0].address}</Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.gst}>GST</Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.gstPrice}>{orderData[0].gst}</Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.totalPrice}>Total</Text>
-                <Card.Divider style={styles.divider} />
-                <Text style={styles.totalPriceValue}>{orderData[0].total}</Text>
+                <Text style={styles.addressValue}>{orderData[0].address}</Text>
             </Card>
+
+             <Card containerStyle={{padding:0,width:"100%",elevation:10}}>
+                <Text style={styles.pricing}>Pricing</Text>
+                <Card.Divider style={styles.divider} />
+                
+                <View style={styles.rowSubTotal}>
+                <Text style={styles.subTotal}>Subtotal</Text>
+                <Text style={styles.subtotalValue}>{orderData[0].subTotal}</Text>
+                </View>
+
+                <View style={styles.rowGst}>
+                    <Text style={styles.gst}>GST</Text>
+                    <Text style={styles.gstValue}>{orderData[0].gst}</Text>
+                </View>
+
+                <View style={styles.rowTotal}>
+                    <Text style={styles.totalPrice}>Total</Text>
+                    <Text style={styles.totalPriceValue}>{orderData[0].total}</Text>
+                </View>
+                 
+             </Card>
             <Button title={"Place Order"} buttonStyle={{marginTop:10,
                 padding:10,
                 width:350,
@@ -61,13 +72,66 @@ const styles = StyleSheet.create({
         fontSize:20,
     },
 
+     shipping:{
+        marginTop:10,
+        marginLeft:10,
+        fontWeight:"bold",
+        fontSize:20
+    },
+
+    pricing:{
+        fontWeight:"bold",
+        marginLeft:10,
+        marginTop:10,
+        fontSize:20
+    },
+
     productItems:{
         marginLeft:10,
-        marginBottom:10
+        marginBottom:20
     },
+
+     addressValue:{
+      marginLeft:10,
+      marginBottom:20,
+      width:"50%"  
+    },
+
+
+    subTotal:{
+        marginLeft:10,
+        marginBottom:20,
+    },
+
+    gst:{
+        marginLeft:10,
+        marginBottom:20
+    },
+
+    totalPrice:{
+        marginLeft:10,
+        marginBottom:20
+    },
+
+   
 
     count:{
         fontWeight:"bold"
+    },
+
+    rowSubTotal:{
+        flexDirection:"row",
+        justifyContent:"space-between"
+    },
+
+    rowGst:{
+        flexDirection:"row",
+        justifyContent:"space-between"
+    },
+
+    rowTotal:{
+        flexDirection:"row",
+        justifyContent:"space-between"
     },
 
     subtotal:{
@@ -76,47 +140,21 @@ const styles = StyleSheet.create({
         marginLeft:10,
     },
 
-    priceEach:{
-        marginLeft:10,
-        marginBottom:10,
-        fontWeight:"bold",
-        fontSize:20
+     subtotalValue:{
+        marginRight:10,
+        fontWeight:"bold"
     },
 
-    shipping:{
-        marginLeft:10,
-        fontWeight:"bold",
-        fontSize:20
-    },
-
-    address:{
-        marginLeft:10,
-        marginBottom:10
-    },
-
-    gst:{
-        marginLeft:10,
-        fontWeight:"bold",
-        fontSize:20
-    },
-
-    gstPrice:{
-        marginLeft:10,
-        marginBottom:10,
-        fontWeight:"bold",
-        fontSize:20
-    },
-
-    totalPrice:{
-        marginLeft:10,
-        fontWeight:"bold",
-        fontSize:20
+    gstValue:{
+        marginRight:10,
+        fontWeight:"bold"
     },
 
     totalPriceValue:{
-        marginLeft:10,
-        marginBottom:20,
-        fontWeight:"bold",
-        fontSize:20
-    }
+        marginRight:10,
+        fontWeight:"bold"
+    },
+
+   
+   
 })
