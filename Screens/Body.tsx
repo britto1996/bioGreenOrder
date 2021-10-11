@@ -10,6 +10,7 @@ export default function Body({navigation}:{navigation:any}) {
 
     const checkEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     const phnumberRegex = /^([+]\d{2})?\d{10}$/;
+    const postalCodeRegex = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
 
     /**dropdown picker contents */
 
@@ -146,66 +147,89 @@ export default function Body({navigation}:{navigation:any}) {
 
     const placeOrder = () => {
 
+       
+    //     if(!nameValue || 
+    //     !countryValue || 
+    //     !addressValue || 
+    //     !stateValue || 
+    //     !codeValue || 
+    //     !phoneValue || 
+    //     !emailValue){
+    //         setNameError("Please enter your name");
+    //         setCountryError("Please select your Country");
+    //         setAddressError("Please enter your address");
+    //         setStateError("Please select your State");
+    //         setCodeError("Please enter your post code");
+    //         setEmailError("Please enter your email");
+    //         setPhoneError("Please enter your mobile number");
 
-
-       if(!nameValue || 
-        !countryValue || 
-        !addressValue || 
-        !stateValue || 
-        !codeValue || 
-        !phoneValue || 
-        !emailValue){
+            
+    //    }
+        if(!nameValue){
             setNameError("Please enter your name");
-            setCountryError("Please select your Country");
-            setAddressError("Please enter your address");
-            setStateError("Please select your State");
-            setCodeError("Please enter your post code");
-            setEmailError("Please enter your email");
-            setPhoneError("Please enter your mobile number");
-       }
-        else if(checkEmail.test(emailValue)===false){
-           setNameError("");
-           setCountryError("");
-           setAddressError("");
-           setStateError("");
-           setCodeError("");
-           setEmailError("Please Enter a valid email");
-          
-       }else if(phnumberRegex.test(phoneValue)===false){
-           setNameError("");
-           setCountryError("");
-           setAddressError("");
-           setStateError("");
-           setCodeError("");
-           setPhoneError("Please enter a valid mobile");
-       }else{
-         if(nameValue ||
-            countryValue ||
-            addressValue ||
-            stateValue ||
-            codeValue ||
-            phoneValue ||
-            emailValue){
-                setNameError("");
-                setCountryError("");
-                setAddressError("");
-                setStateError("");
-                setCodeError("");
-                setPhoneError("");
-                setEmailError("");
-            }
+        }else if(nameValue){
+            setNameError("")
+        }
 
-         if(checkEmail.test(emailValue)===true){
-             
-             setEmailError("");
-         }
-         if(phnumberRegex.test(phoneValue)===true){
-             setPhoneError("");
-         }
-         navigation.navigate("Order");
+        if(!countryValue){
+            setCountryError("Please select your country");
+        }else if(countryValue){
+            setCountryError("");
+        }
+
+        if(!addressValue){
+            setAddressError("Please enter your address");
+        }else if(addressValue){
+            setAddressError("");
+        }
+
+        if(!stateValue){
+            setStateError("Please select your state");
+        }else if(stateValue){
+            setStateError("");
+        }
+
+        if(!codeValue){
+            setCodeError("Please enter your postal code")
+        }else if(postalCodeRegex.test(codeValue)===false){
+            setCodeError("Please enter a valid postal code")
+        }else if(codeValue){
+            setCodeError("");
+        }
+
+        if(!emailValue){
+            setEmailError("Please enter your email");
+        }else if(checkEmail.test(emailValue)===false){
+            setEmailError("Please enter a valid email");
+        }else if(checkEmail){
+            setEmailError("");
+        }
+
+        if(!phoneValue){
+            setPhoneError("Please enter your mobile number");
+        }else if(phnumberRegex.test(phoneValue)===false){
+            setPhoneError("Please enter a valid phone number");
+        }else if(phoneValue){
+            setPhoneError("");
+        }
+
+        if(nameValue!=="" &&
+          countryValue!=="" &&
+          addressValue!=="" &&
+          stateValue!=="" &&
+          codeValue!=="" &&
+          phoneValue!=="" &&
+          emailValue!=="" &&
+          phnumberRegex.test(phoneValue)===true &&
+          checkEmail.test(emailValue)===true &&
+          postalCodeRegex.test(codeValue)===true){
+            console.log(nameValue);
+            navigation.navigate("Order");
+        }
+        
        }
        
-    }
+    
 
     return (
          <ScrollView style={styles.bodyContainer}>
