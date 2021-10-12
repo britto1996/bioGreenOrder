@@ -147,24 +147,6 @@ export default function Body({navigation}:{navigation:any}) {
 
     const placeOrder = () => {
 
-       
-    //     if(!nameValue || 
-    //     !countryValue || 
-    //     !addressValue || 
-    //     !stateValue || 
-    //     !codeValue || 
-    //     !phoneValue || 
-    //     !emailValue){
-    //         setNameError("Please enter your name");
-    //         setCountryError("Please select your Country");
-    //         setAddressError("Please enter your address");
-    //         setStateError("Please select your State");
-    //         setCodeError("Please enter your post code");
-    //         setEmailError("Please enter your email");
-    //         setPhoneError("Please enter your mobile number");
-
-            
-    //    }
         if(!nameValue){
             setNameError("Please enter your name");
         }else if(nameValue){

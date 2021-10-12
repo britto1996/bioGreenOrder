@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Body from './Screens/Body';
 import Header from './Screens/Header';
 import Order from './Screens/Order';
+import Offer from './Screens/Offer';
 
 
 // const Stack = createNativeStackNavigator()
@@ -24,6 +25,7 @@ export default function App() {
       <Navigator>
         <Screen options={{headerShown:false}} name="Checkout" component={Body} />
         <Screen options={{headerShown:false}} name="Order" component={Order} />
+        <Screen options={{headerShown:false}} name="Offer" component={Offer} />
       </Navigator>
     </NavigationContainer>
   );

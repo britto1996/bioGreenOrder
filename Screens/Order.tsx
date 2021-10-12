@@ -3,8 +3,11 @@ import { View, Text, StyleSheet } from 'react-native'
 import { Button, Card } from 'react-native-elements'
 import orderData from './OrderData'
 
-export default function Order() {
+export default function Order({navigation}:{navigation:any}) {
     // console.log(orderData[0].count);
+    const placeOrder = () => {
+        navigation.navigate("Offer")
+    }
     return (
         <View style={styles.orderContainer}>
             <Text style={styles.orderTitle}>Your Order</Text>
@@ -44,7 +47,9 @@ export default function Order() {
                 padding:10,
                 width:350,
                 backgroundColor:"green",
-                borderRadius:12}} />
+                borderRadius:12}}
+                onPress={()=>placeOrder()}
+                />
         </View>
     )
 }
