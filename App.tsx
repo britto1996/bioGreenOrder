@@ -7,6 +7,7 @@ import Body from './Screens/Body';
 import Header from './Screens/Header';
 import Order from './Screens/Order';
 import Offer from './Screens/Offer';
+import ApplyCoupon from './Screens/ApplyCoupon';
 
 
 // const Stack = createNativeStackNavigator()
@@ -26,6 +27,7 @@ export default function App() {
         <Screen options={{headerShown:false}} name="Checkout" component={Body} />
         <Screen options={{headerShown:false}} name="Order" component={Order} />
         <Screen options={{headerShown:false}} name="Offer" component={Offer} />
+        <Screen options={{headerShown:false}} name="Coupon" component={ApplyCoupon} />
       </Navigator>
     </NavigationContainer>
   );
